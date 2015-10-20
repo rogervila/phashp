@@ -3,6 +3,7 @@
     "description": "Combines different hash algos in order to create a strong hashed string",
     "keywords": ["hash", "security"],
     "license": "MIT",
+    "version":"1.0.0",
     "authors": [
         {
             "name": "Roger Vilà",
