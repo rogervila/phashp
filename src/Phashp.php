@@ -45,15 +45,18 @@ class Phashp
     protected $hashedString;
 
     /**
-     * Phashp constructor.
+     * Phashp constructor. Sets the default values
      */
     public function __construct()
     {
         $this->algorithms = $this->getDefaultAlgorithms();
         $this->counter = 1;
+        $this->outputAlgorithm = 'sha1';
     }
 
     /**
+     * Handles the first method appended after 'Phashp::'
+     *
      * @param $name
      * @param $arguments
      * @return Phashp
@@ -64,6 +67,8 @@ class Phashp
     }
 
     /**
+     * Handles fluent methods except the first one after 'Phashp::'
+     *
      * @param $name
      * @param $arguments
      * @return Phashp
@@ -74,6 +79,8 @@ class Phashp
     }
 
     /**
+     * Creates the instance and calls the methods
+     *
      * @param $name
      * @param $arguments
      * @return Phashp
@@ -95,6 +102,8 @@ class Phashp
     }
 
     /**
+     * Sets the algorithms
+     *
      * @param $algorithms
      * @return $this
      * @throws \Exception
@@ -111,6 +120,8 @@ class Phashp
     }
 
     /**
+     * Sets the amount of cycles
+     *
      * @param $integer
      * @return $this
      * @throws \Exception
@@ -131,6 +142,8 @@ class Phashp
     }
 
     /**
+     * Sets the output algorithm
+     *
      * @param $algorithm
      * @return $this
      * @throws \Exception
@@ -147,6 +160,8 @@ class Phashp
     }
 
     /**
+     * Executes the process and returns the processed string
+     *
      * @param $string
      * @return string
      * @throws \Exception
