@@ -1,22 +1,34 @@
 {
-    "name": "rogervila/phashp",
-    "description": "Combines different hash algos in order to create a strong hashed string",
-    "keywords": ["hash", "security"],
-    "license": "MIT",
-    "version":"1.0.0",
-    "authors": [
-        {
-            "name": "Roger Vilà",
-            "email": "rogervila@me.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=5.3.0"
-    },
-    "autoload": {
-        "psr-0": {
-            "Rogervila": "src/"
-        }
+  "name": "rogervila/phashp",
+  "description": "Combines different hashing algorithms in order to create a strong hashed string",
+  "keywords": [
+    "hash",
+    "security",
+    "string"
+  ],
+  "license": "MIT",
+  "version": "2.0.0",
+  "authors": [
+    {
+      "name": "Roger Vilà",
+      "email": "rogervila@me.com"
     }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Phashp\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Phashp\\Tests\\": "tests/"
+    }
+  }
 }
