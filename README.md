@@ -11,7 +11,7 @@ Combines different hash algorithms in order to create a stronger hashed string.
 
 ### Install
 
-First, install [Composer]
+First, install [Composer](https://getcomposer.org/)
 ```sh
 $ curl -sS https://getcomposer.org/installer | php
 $ sudo mv composer.phar /usr/local/bin/composer
