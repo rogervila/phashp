@@ -44,5 +44,6 @@ Phashp::algos(['sha1', 'sha256'])->cycles(2)->output('sha512')->hash('stringToHa
 
 `hash()` **the only mandatory method**. It accepts the string that will be processed. **It must go at the end of the fluent concatenation**.
 
+### License
 
-
+[MIT](https://github.com/rogervila/phashp/blob/master/LICENSE)
