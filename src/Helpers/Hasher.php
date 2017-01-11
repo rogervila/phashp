@@ -23,7 +23,8 @@ trait Hasher
              * Hash every character with every algorithm
              * @var array
              */
-            for ($y = 0; $y < count($charactersArray); $y++) {
+            $charactersArrayLength = count($charactersArray);
+            for ($y = 0; $y < $charactersArrayLength; $y++) {
                 foreach ($this->algorithms as $algorithm) {
                     $charactersArray[$y] = hash($algorithm, $charactersArray[$y]);
                 }
