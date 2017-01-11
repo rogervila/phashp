@@ -20,7 +20,7 @@ class PhashpTest extends \PHPUnit_Framework_TestCase
         }
 
         // Check methods
-        foreach (['execute', 'getDefaultAlgorithms', '__callStatic', '__call', 'parseHash', 'parseAlgos', 'parseCycles', 'parseString', 'parseOutput'] as $method) {
+        foreach (['execute', 'getDefaultAlgorithms', '__callStatic', '__call', 'parseHash', 'parseAlgos', 'parseCycles', 'parseOutput'] as $method) {
             $this->assertTrue(
                 method_exists($phashp, $method),
                 'Cart does not have method "' . $method . '"'

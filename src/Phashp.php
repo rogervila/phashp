@@ -25,21 +25,15 @@ class Phashp
 
     public static function __callStatic($name, $arguments)
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self();
-        }
-
-        $method = 'parse' . ucfirst($name);
-
-        if (method_exists(self::$instance, $method)) {
-            $args = isset($arguments[0]) ? $arguments[0] : null;
-            return self::$instance->{$method}($args);
-        }
-
-        return self::$instance;
+        return self::handle($name, $arguments);
     }
 
     public function __call($name, $arguments)
+    {
+        return self::handle($name, $arguments);
+    }
+
+    protected static function handle($name, $arguments)
     {
         if (is_null(self::$instance)) {
             self::$instance = new self();
@@ -62,17 +56,6 @@ class Phashp
         }
 
         $this->algorithms = $algorithms;
-
-        return $this;
-    }
-
-    protected function parseString($string)
-    {
-        if ( ! is_string($string)) {
-            throw new \Exception('');
-        }
-
-        $this->string = $string;
 
         return $this;
     }
@@ -103,8 +86,14 @@ class Phashp
         return $this;
     }
 
-    protected function parseHash()
+    protected function parseHash($string)
     {
+        if ( ! is_string($string)) {
+            throw new \Exception('');
+        }
+
+        $this->string = $string;
+
         return $this->execute();
     }
 }
