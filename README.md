@@ -1,6 +1,7 @@
 # Phashp
 
 [![Build Status](https://travis-ci.org/rogervila/phashp.svg?branch=master)](https://travis-ci.org/rogervila/phashp)
+[![Build status](https://ci.appveyor.com/api/projects/status/tyme6yck2jc0mt0a?svg=true)](https://ci.appveyor.com/project/roger-vila/phashp)
 [![StyleCI](https://styleci.io/repos/43978114/shield?branch=master)](https://styleci.io/repos/43978114)
 [![Code Climate](https://codeclimate.com/github/rogervila/phashp/badges/gpa.svg)](https://codeclimate.com/github/rogervila/phashp)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/cd4c4a22-7b0a-4d41-b1ea-0bf127729075/big.png)](https://insight.sensiolabs.com/projects/cd4c4a22-7b0a-4d41-b1ea-0bf127729075)
