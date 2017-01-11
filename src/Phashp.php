@@ -17,7 +17,7 @@ class Phashp
     protected $counter;
     protected $hashedString;
 
-    function __construct()
+    public function __construct()
     {
         $this->algorithms = $this->getDefaultAlgorithms();
         $this->counter = 1;
@@ -29,7 +29,7 @@ class Phashp
             self::$instance = new self();
         }
 
-        $method = 'parse_' . $name;
+        $method = 'parse' . ucfirst($name);
 
         if (method_exists(self::$instance, $method)) {
             $args = isset($arguments[0]) ? $arguments[0] : null;
@@ -45,7 +45,7 @@ class Phashp
             self::$instance = new self();
         }
 
-        $method = 'parse_' . $name;
+        $method = 'parse' . ucfirst($name);
 
         if (method_exists(self::$instance, $method)) {
             $args = isset($arguments[0]) ? $arguments[0] : null;
@@ -55,7 +55,7 @@ class Phashp
         return self::$instance;
     }
 
-    protected function parse_algos($algorithms)
+    protected function parseAlgos($algorithms)
     {
         if ( ! is_array($algorithms)) {
             throw new \Exception('');
@@ -66,7 +66,7 @@ class Phashp
         return $this;
     }
 
-    protected function parse_string($string)
+    protected function parseString($string)
     {
         if ( ! is_string($string)) {
             throw new \Exception('');
@@ -77,7 +77,7 @@ class Phashp
         return $this;
     }
 
-    protected function parse_cycles($integer)
+    protected function parseCycles($integer)
     {
         if ( ! is_int($integer)) {
             throw new \Exception('');
@@ -92,7 +92,7 @@ class Phashp
         return $this;
     }
 
-    protected function parse_output($algorithm)
+    protected function parseOutput($algorithm)
     {
         if ( ! in_array($algorithm, hash_algos())) {
             throw new \Exception('');
@@ -103,7 +103,7 @@ class Phashp
         return $this;
     }
 
-    protected function parse_hash()
+    protected function parseHash()
     {
         return $this->execute();
     }
