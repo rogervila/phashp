@@ -1,6 +1,13 @@
 # Phashp
 
-Combines different hash algos in order to create a strong hashed string.
+[![Build Status](https://travis-ci.org/rogervila/phashp.svg?branch=master)](https://travis-ci.org/rogervila/phashp)
+[![StyleCI](https://styleci.io/repos/43978114/shield?branch=master)](https://styleci.io/repos/43978114)
+[![Code Climate](https://codeclimate.com/github/rogervila/phashp/badges/gpa.svg)](https://codeclimate.com/github/rogervila/phashp)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/cd4c4a22-7b0a-4d41-b1ea-0bf127729075/big.png)](https://insight.sensiolabs.com/projects/cd4c4a22-7b0a-4d41-b1ea-0bf127729075)
+
+Combines different hash algorithms in order to create a stronger hashed string.
+
+[You can find the v1 docs here](https://github.com/rogervila/phashp/tree/1.0).
 
 ### Install
 
@@ -10,64 +17,32 @@ $ curl -sS https://getcomposer.org/installer | php
 $ sudo mv composer.phar /usr/local/bin/composer
 ```
 
-Then, require phashp on your project
+Then, require the library on your project
 ```sh
 $ composer require rogervila/phashp
 ```
 
-### Docs
+### Usage
 
-Call the class
 ```php
-use Rogervila\Phashp;
-```
-Create the object
-```php
-$Phashp = new Phashp;
-```
-Set the hash algos that you want to use (optional)
-If algos are not set, it will use the whole accepted algos array
-```php
-$Phashp->set_algos(['sha512', 'sha256', 'sha224']);
-```
-Set the output hash. at the end of the magic, the string is hashed in a 'normal' way. **SHA-1 is defined by default**
-```php
-$Phashp->set_output_algo('sha256');
-```
-**Hash it!**
-```php
-$result = $Phashp->hash($string);
-echo $result;
+// Simple usage
+Phashp::hash('stringToHash');
+
+// Full options
+Phashp::algos(['sha1', 'sha256'])->cycles(2)->output('sha512')->hash('stringToHash');
 ```
 
-#### Retrieve data
+ ### Docs
+ 
+ `algos()` accepts an array of valid hashing algorithms. You can find which ones you can use on your current PHP version with [PHP hash_algos() method](http://php.net/manual/en/function.hash-algos.php).
+ 
+ `cycles()` accepts an integer greater than 0, that will determine the amount of cycles.
+ 
+ **WARNING: a high amount of cycles can make PHP run out of memory**.
 
-Get the used algos
-```php
-$algos = $Phashp->get_algos();
-var_dump($algos);
-```
-Get the output hash algo
-```php
-$output_algo = $Phashp->get_output_algo();
-echo $output_algo;
-```
+`output()` accepts a valid hashing algorithm. The processed string will be returned in that hash algorithm format.
 
-Get the accepted algos
-```php
-$accepted = $Phashp->get_accepted_algos();
-var_dump($accepted);
-```
+`hash()` **the only mandatory method**. It accepts the string that will be processed. **It must go at the end of the fluent concatenation**.
 
-### Version
-1.0.0
 
-License
-----
 
-MIT
-
-"&copy; [Roger Vilà]"
-
-[Composer]: <http://getcomposer.org/>
-[Roger Vilà]: <http://rogervila.es/>
