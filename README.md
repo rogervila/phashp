@@ -32,7 +32,7 @@ Phashp::hash('stringToHash');
 Phashp::algos(['sha1', 'sha256'])->cycles(2)->output('sha512')->hash('stringToHash');
 ```
 
- ### Docs
+### Docs
  
  `algos()` accepts an array of valid hashing algorithms. You can find which ones you can use on your current PHP version with [PHP hash_algos() method](http://php.net/manual/en/function.hash-algos.php).
  
