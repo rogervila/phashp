@@ -27,4 +27,42 @@ class PhashpTest extends \PHPUnit_Framework_TestCase
             );
         }
     }
+
+    /** @test */
+    public function alwaysReturnsTheSameValue()
+    {
+        $string = uniqid();
+
+        $result1 = Phashp::hash($string);
+        $result2 = Phashp::hash($string);
+
+        $this->assertEquals($result1, $result2);
+    }
+
+    /** @test */
+    public function failsIfInvalidAlgorithmIsPassedAsOutput()
+    {
+        $this->setExpectedException(\Exception::class);
+
+        // send a random string
+        Phashp::output(uniqid())->hash(uniqid());
+    }
+
+    /** @test */
+    public function failsIfArgumentPassedToAlgosIsNotAnArray()
+    {
+        $this->setExpectedException(\Exception::class);
+
+        // Send a string instead of an array
+        Phashp::algos(uniqid())->hash(uniqid());
+    }
+
+    /** @test */
+    public function failsIfArgumentPassedToCyclesIsNotAnInteger()
+    {
+        $this->setExpectedException(\Exception::class);
+
+        // Send a string instead of an array
+        Phashp::cycles(uniqid())->hash(uniqid());
+    }
 }
