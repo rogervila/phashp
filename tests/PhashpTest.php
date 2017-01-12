@@ -42,7 +42,7 @@ class PhashpTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function failsIfInvalidAlgorithmIsPassedAsOutput()
     {
-        $this->setExpectedException(\Exception::class);
+        $this->setExpectedException(get_class(new \Exception));
 
         // send a random string
         Phashp::output(uniqid())->hash(uniqid());
@@ -51,7 +51,7 @@ class PhashpTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function failsIfArgumentPassedToAlgosIsNotAnArray()
     {
-        $this->setExpectedException(\Exception::class);
+        $this->setExpectedException(get_class(new \Exception));
 
         // Send a string instead of an array
         Phashp::algos(uniqid())->hash(uniqid());
@@ -60,7 +60,7 @@ class PhashpTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function failsIfArgumentPassedToCyclesIsNotAnInteger()
     {
-        $this->setExpectedException(\Exception::class);
+        $this->setExpectedException(get_class(new \Exception));
 
         // Send a string instead of an array
         Phashp::cycles(uniqid())->hash(uniqid());
